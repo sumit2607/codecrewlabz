@@ -158,18 +158,31 @@ setInterval(() => {
 // Form Submission
 document.getElementById('leadForm').addEventListener('submit', (e) => {
     e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const business = document.getElementById('business').value;
+    const phone = document.getElementById('phone').value;
+    const email = document.getElementById('email').value;
+    const type = document.getElementById('type').value;
+
     const btn = e.target.querySelector('button');
     const originalText = btn.textContent;
 
-    btn.textContent = 'Securing Slot...';
+    btn.textContent = 'Redirecting to WhatsApp...';
     btn.disabled = true;
 
+    // Construct WhatsApp Message
+    const message = `Hello CodeCrewLabz, I want to secure my website slot for ₹999.%0a%0aName: ${name}%0aBusiness: ${business}%0aPhone: ${phone}%0aEmail: ${email}%0aType: ${type}`;
+
+    const whatsappUrl = `https://wa.me/919667395436?text=${message}`;
+
+    // Redirect after a short delay
     setTimeout(() => {
-        alert("🎉 Congratulations! Your slot for ₹999 has been reserved. Our team will contact you shortly via WhatsApp/Phone.");
+        window.open(whatsappUrl, '_blank');
         btn.textContent = originalText;
         btn.disabled = false;
         e.target.reset();
-    }, 1500);
+    }, 1000);
 });
 
 // Intersection Observer for Scroll Animations
