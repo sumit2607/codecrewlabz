@@ -1021,97 +1021,155 @@ footer {
     background: linear-gradient(to bottom, #f8fafc, #fff)
 }
 
-.comparison-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.comparison-card {
+.comparison-table-wrapper {
     background: var(--white);
-    padding: 2.5rem;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
-    position: relative;
     overflow: hidden;
+    max-width: 900px;
+    margin: 0 auto;
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.comparison-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-lg);
-}
-
-.comparison-card.featured {
-    border: 2px solid var(--accent-color);
-    background: linear-gradient(145deg, #ffffff, #f0f4ff);
-}
-
-.card-icon {
-    width: 70px;
-    height: 70px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-}
-
-.card-icon.speed {
-    background: rgba(255, 107, 107, 0.1);
-    color: #ff6b6b;
-}
-
-.card-icon.security {
-    background: rgba(46, 204, 113, 0.1);
-    color: #2ecc71;
-}
-
-.card-icon.ai {
-    background: rgba(118, 75, 162, 0.1);
-    color: var(--accent-color);
-}
-
-.comparison-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.versus-row {
+.comparison-header {
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr 1.5fr;
     background: var(--light-bg);
-    padding: 1rem;
-    border-radius: var(--radius-md);
-    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-bottom: 2px solid #e2e8f0;
 }
 
-.vs-item {
+.comparison-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr 1.5fr;
+    padding: 1.5rem;
+    align-items: center;
+    border-bottom: 1px solid #e2e8f0;
+    transition: background 0.3s ease;
+}
+
+.comparison-row:hover {
+    background: #f8fafc;
+}
+
+.comparison-row:last-child {
+    border-bottom: none;
+}
+
+.col-feature {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.9rem;
+    gap: 0.75rem;
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    color: var(--text-dark);
 }
 
-.vs-item:last-child {
-    margin-bottom: 0;
+.col-feature i {
+    color: var(--accent-color);
+    font-size: 1.25rem;
+    width: 24px;
+    text-align: center;
 }
 
-.vs-item.bad {
-    color: #e74c3c;
-}
-
-.vs-item.good {
-    color: #2ecc71;
-}
-
-.comparison-card p {
+.col-wp {
     color: var(--text-muted);
-    font-size: 0.95rem;
 }
 
+.col-us {
+    font-weight: 600;
+    color: var(--text-dark);
+    position: relative;
+}
+
+.badge-recommended {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #25D366;
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    white-space: nowrap;
+}
+
+.status-bad {
+    color: #e74c3c;
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+
+.status-good {
+    color: #2ecc71;
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+}
+
+.status-neutral {
+    color: #f39c12;
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+
+.comparison-row small {
+    display: block;
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+.mobile-label {
+    display: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+}
+
+/* Mobile Responsiveness for Table */
+@media (max-width: 768px) {
+    .comparison-header {
+        display: none;
+    }
+
+    .comparison-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 2rem;
+        border-bottom: 4px solid #f1f5f9;
+    }
+
+    .col-feature {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        color: var(--accent-color);
+    }
+
+    .mobile-label {
+        display: block;
+    }
+
+    .col-wp,
+    .col-us {
+        padding-left: 2.5rem;
+        /* Indent to align with where content would be */
+        position: relative;
+    }
+
+    .col-us {
+        margin-top: 1rem;
+        background: rgba(46, 204, 113, 0.05);
+        padding: 1rem;
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(46, 204, 113, 0.2);
+    }
+}
 
 /* Mobile Responsiveness */
 @media (max-width: 900px) {
