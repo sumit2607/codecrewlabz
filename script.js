@@ -172,7 +172,7 @@ document.getElementById('leadForm').addEventListener('submit', (e) => {
     btn.disabled = true;
 
     // Construct WhatsApp Message
-    const message = `Hello CodeCrewLabz, I want to secure my website slot for ₹1999 Only.%0a%0aName: ${name}%0aBusiness: ${business}%0aPhone: ${phone}%0aEmail: ${email}%0aType: ${type}`;
+    const message = `Hello CodeCrewLabz, I want to secure my website slot for ₹9999 Only.%0a%0aName: ${name}%0aBusiness: ${business}%0aPhone: ${phone}%0aEmail: ${email}%0aType: ${type}`;
 
     const whatsappUrl = `https://wa.me/919076573857?text=${message}`;
 
